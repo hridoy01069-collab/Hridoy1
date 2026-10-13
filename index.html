@@ -1,2 +1,43 @@
 
-<!DOCTYPE html><html><head><title>WorkBD - Earn Money</title><meta name="viewport" content="width=device-width, initial-scale=1"><style>body{background:#0f0f0f;color:white;font-family:Arial;margin:0} .header{background:#1a1a1a;padding:20px;text-align:center;border-bottom:2px solid #a855f7} .header h1{color:#a855f7;margin:0} .balance{background:linear-gradient(90deg,#a855f7,#ec4899);padding:20px;border-radius:15px;margin:20px;text-align:center} .job{background:#1e1e1e;margin:15px;border-radius:15px;padding:20px;border:1px solid #333} .job h3{color:#22c55e;margin:0 0 10px 0} .btn{background:#22c55e;color:white;padding:12px;border:none;border-radius:8px;width:100%;font-size:16px;font-weight:bold} .tag{background:#333;padding:5px 10px;border-radius:20px;font-size:12px}</style></head><body><div class="header"><h1>💼 WorkBD.com</h1><p>কাজ করুন, ডলার ইনকাম করুন!</p></div><div class="balance"><h2>আপনার ব্যালেন্স: $12.50</h2><p>আজকের ইনকাম: $2.30 | Users: 1,240</p></div><div class="job"><h3>📱 YouTube Subscribe + Like</h3><p><span class="tag">💰 $0.50</span> <span class="tag">⏱ 2 min</span></p><p>চ্যানেল Subscribe করে Screenshot দিন</p><button class="btn" onclick="alert('কাজ শুরু! $0.50 পাবেন!')">কাজ শুরু করুন</button></div><div class="job"><h3>📸 Instagram Follow</h3><p><span class="tag">💰 $0.30</span></p><p>Follow করুন</p><button class="btn" onclick="alert('Done! $0.30 যোগ হয়েছে!')">কাজ শুরু করুন</button></div><div class="job"><h3>🌐 Website Visit</h3><p><span class="tag">💰 $0.20</span></p><button class="btn" onclick="alert('Visit Done!')">কাজ শুরু করুন</button></div><div class="job" style="text-align:center;background:#a855f7"><h3>💸 Withdraw</h3><p>Bkash / Nagad / Binance</p><button class="btn" style="background:white;color:#a855f7" onclick="alert('Minimum $10')">Withdraw Now</button></div><p style="text-align:center;color:#555;margin:30px">© WorkBD - Admin: Hridoy</p></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WorkBD</title>
+<style>
+body{font-family:Arial;background:#f0f2f5;text-align:center;padding:20px}
+.card{background:white;padding:20px;border-radius:15px;max-width:350px;margin:auto;box-shadow:0 2px 10px #ccc}
+.balance{font-size:28px;color:green;font-weight:bold}
+.btn{background:#007bff;color:white;border:none;padding:12px;width:90%;margin:5px;border-radius:8px;font-size:16px}
+.btn2{background:#28a745}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>WorkBD</h2>
+<p>Balance</p>
+<div class="balance" id="bal">$12.50</div>
+<br>
+<button class="btn" onclick="add()">Task + $0.50</button>
+<button class="btn btn2" onclick="wd()">Withdraw</button>
+<p id="msg" style="color:green"></p>
+</div>
+<script>
+let b=12.50;
+function up(){document.getElementById('bal').innerText="$"+b.toFixed(2)}
+function add(){b+=0.50;up();alert("Added $0.50")}
+function wd(){
+ if(b<10){alert("Minimum $10 লাগবে, আপনার আছে $"+b.toFixed(2));return;}
+ let num=prompt("Bkash/Nagad Number দিন:");
+ if(!num)return;
+ let amt=prompt("Amount কত? 10 থেকে "+b.toFixed(2),"10");
+ if(!amt)return;
+ document.getElementById('msg').innerText="Request Sent! Bkash: "+num+" Amount: $"+amt;
+ alert("Withdraw Success! 24h এর মধ্যে পাবেন");
+ b-=parseFloat(amt);up();
+}
+up();
+</script>
+</body>
+</html>
